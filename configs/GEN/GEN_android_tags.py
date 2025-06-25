@@ -1,7 +1,6 @@
 # Device Family is GEN = General family
 fam_name = 'GEN'
-# SDK is general (i.e. not automotive)
-sdk_product = 'general'
+
 # Processor SDK Android documentation build configuration file
 
 # The master toctree document.
@@ -41,6 +40,3 @@ texinfo_documents = [
    'Texas Instruments Incorporated', 'ProcessorSDKAndroid', 'One line description of project.',
    'Miscellaneous'),
 ]
-
-# OS for the build. Sphinx uses source/{sdk_os} when looking for doc inputs
-sdk_os = 'android'

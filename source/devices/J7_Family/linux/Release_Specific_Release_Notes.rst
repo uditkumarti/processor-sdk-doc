@@ -108,7 +108,7 @@ U-Boot
 
    .. note::
 
-      meta-edgeai Yocto layer contains additional patches for U-Boot `here <https://git.ti.com/cgit/edgeai/meta-edgeai/tree/recipes-bsp/u-boot?h=11.00.00.02>`__.
+      meta-edgeai Yocto layer contains additional patches for U-Boot `here <https://git.ti.com/cgit/edgeai/meta-edgeai/tree/recipes-bsp/u-boot?h=11.00.00.08>`__.
 
 .. _kernel-release-notes:
 
@@ -136,7 +136,7 @@ Kernel
 
    .. note::
 
-      meta-edgeai Yocto layer contains additional patches for Kernel `here <https://git.ti.com/cgit/edgeai/meta-edgeai/tree/recipes-kernel/linux?h=11.00.00.02>`__.
+      meta-edgeai Yocto layer contains additional patches for Kernel `here <https://git.ti.com/cgit/edgeai/meta-edgeai/tree/recipes-kernel/linux?h=11.00.00.08>`__.
 
 .. _tf-a-release-notes:
 
@@ -203,23 +203,23 @@ Yocto
 
 .. rubric:: meta-tisdk
 
-| Head Commit: 2f497ac1090c5b256878d803b96901d73a285840 meta-ti-foundational: powervr-drivers: Add ti-img-rogue-driver bbappend
+| Head Commit: 73aae47bf953dd4cf06e448367135b1cac0869a1 meta-ti-foundational: ti-apps-launcher: Update SRCREV
 
 | Repo: https://github.com/TexasInstruments/meta-tisdk.git
 | Branch: scarthgap
-| Release Tag: 11.00.09.04
+| Release Tag: REL.J7.11.00-01
 |
 
 .. ifconfig:: CONFIG_image_type in ('edgeai', 'adas')
 
    .. rubric:: meta-edgeai
 
-   | Head Commit: bccfd706c87e0017360e75bdf9803679fe24db13 [20241210] EDGEAI Auto Update
-   | Date: 2024-12-10
+   | Head Commit: 81d1b80b2a314814c6d900e82ea2da93eee3f57d [20250519] EDGEAI Auto Update
+   | Date: 2025-05-19
 
    | Clone: git://git.ti.com/edgeai/meta-edgeai.git
    | Branch: scarthgap
-   | Release Tag: 10.01.00.04
+   | Release Tag: 11.00.00.08
    |
 
 Issues Tracker
