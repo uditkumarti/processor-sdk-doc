@@ -31,7 +31,6 @@ linux/Foundational_Components/U-Boot/UG-DFU
 linux/Foundational_Components/U-Boot/UG-Network
 linux/Foundational_Components/U-Boot/UG-NAND
 linux/Foundational_Components/U-Boot/UG-Memory-K3
-linux/Foundational_Components/U-Boot/UG-SPI
 linux/Foundational_Components/U-Boot/UG-QSPI
 linux/Foundational_Components/U-Boot/UG-NOR
 linux/Foundational_Components/U-Boot/UG-UART
@@ -57,6 +56,9 @@ linux/Foundational_Components/Kernel/Kernel_Drivers/I2C
 linux/Foundational_Components/Kernel/Kernel_Drivers/Network/CPSW2g
 linux/Foundational_Components/Kernel/Kernel_Drivers/Network/CPSW-EST
 linux/Foundational_Components/Kernel/Kernel_Drivers/Network/CPSW-IET
+linux/Foundational_Components/Kernel/Kernel_Drivers/Network/HSR_PRP_Non_Offload
+linux/Foundational_Components/Kernel/Kernel_Drivers/Network/HSR_Offload
+linux/Foundational_Components/Kernel/Kernel_Drivers/Network/PRP_Offload
 linux/Foundational_Components/Kernel/Kernel_Drivers/PCIe/PCIe_End_Point
 linux/Foundational_Components/Kernel/Kernel_Drivers/PCIe/PCIe_Root_Complex
 linux/Foundational_Components/Kernel/Kernel_Drivers/PWM
@@ -105,7 +107,6 @@ linux/Foundational_Components/Graphics/Common/PVR_Tools
 linux/Foundational_Components/Graphics/Common/QT_Graphics_Framework
 linux/Foundational_Components/Graphics/Common/Weston
 linux/Foundational_Components/Graphics/SGX/AM3_Beagle_Bone_Black_Configuration
-linux/Foundational_Components/Graphics/SGX/OMAP_DRM
 linux/Foundational_Components/Graphics/SGX/Overview
 linux/Foundational_Components/Graphics/SGX/SGX_Debug_Info
 linux/Foundational_Components/Graphics/SGX/Build_Guide
@@ -120,7 +121,6 @@ linux/How_to_Guides/Host/Moving_Files_to_the_Target_System
 linux/How_to_Guides/Host/K3_Resource_Partitioning_Tool
 linux/How_to_Guides/Target/Processor_SDK_Linux_File_System_Optimization_Customization
 linux/How_to_Guides/Target/How_to_add_a_JVM
-linux/How_to_Guides/Target/How_to_use_a_Mouse_instead_of_the_Touchscreen_with_Matrix
 linux/How_to_Guides/Target/Update_U-Boot_Environment_Variables_stored_in_SPI_Flash_from_Linux
 linux/How_to_Guides/Target/How_to_Use_K3Conf_Tool
 linux/How_to_Guides/Target/How_to_Tune_Real_Time_Linux

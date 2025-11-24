@@ -57,6 +57,9 @@ linux/Foundational_Components/Kernel/Kernel_Drivers/GPIO
 linux/Foundational_Components/Kernel/Kernel_Drivers/I2C
 linux/Foundational_Components/Kernel/Kernel_Drivers/Network/CPSW
 linux/Foundational_Components/Kernel/Kernel_Drivers/Network/PRUSS
+linux/Foundational_Components/Kernel/Kernel_Drivers/Network/HSR_PRP_Non_Offload
+linux/Foundational_Components/Kernel/Kernel_Drivers/Network/HSR_Offload
+linux/Foundational_Components/Kernel/Kernel_Drivers/Network/PRP_Offload
 linux/Foundational_Components/Kernel/Kernel_Drivers/PWM
 linux/Foundational_Components/Kernel/Kernel_Drivers/SPI
 linux/Foundational_Components/Kernel/Kernel_Drivers/Storage/NAND
@@ -66,8 +69,6 @@ linux/Foundational_Components/Kernel/Kernel_Drivers/UBIFS
 linux/Foundational_Components/Kernel/Kernel_Drivers/UFS
 linux/Foundational_Components/Kernel/Kernel_Drivers/USB/MUSB
 linux/Foundational_Components_Kernel_Users_Guide
-linux/Foundational_Components_Kernel_Release_Notes
-linux/Foundational_Components_Kernel_RT_Release_Notes
 linux/Foundational_Components_Kernel_LTP-DDT_Validation
 linux/Foundational_Components_Kernel_FAQs
 linux/Foundational_Components_Power_Management
@@ -86,6 +87,7 @@ linux/Foundational_Components/PRU-ICSS-Linux-Drivers
 linux/Foundational_Components/PRU-ICSS/Linux_Drivers/RemoteProc
 linux/Foundational_Components/PRU-ICSS/Linux_Drivers/RPMsg
 linux/Foundational_Components/PRU-ICSS/RPMsg_Quick_Start_Guide
+linux/Foundational_Components/PRU-ICSS/Linux_Drivers/PRU-ICSS_Ethernet
 linux/Foundational_Components/PRU-ICSS/Linux_Drivers/pru-sw-uart
 linux/Foundational_Components/PRU-ICSS/Linux_Drivers/pruss-uart
 linux/Foundational_Components/PRU-ICSS-Hardware
@@ -107,7 +109,6 @@ linux/Foundational_Components/Graphics/Common/PVR_Tools
 linux/Foundational_Components/Graphics/Common/QT_Graphics_Framework
 linux/Foundational_Components/Graphics/Common/Weston
 linux/Foundational_Components/Graphics/SGX/AM3_Beagle_Bone_Black_Configuration
-linux/Foundational_Components/Graphics/SGX/OMAP_DRM
 linux/Foundational_Components/Graphics/SGX/Overview
 linux/Foundational_Components/Graphics/SGX/SGX_Debug_Info
 linux/Foundational_Components/Graphics/SGX/Build_Guide
@@ -115,10 +116,8 @@ linux/Foundational_Components/Graphics/SGX/Build_Guide
 linux/Examples_and_Demos
 linux/Examples_and_Demos_Application_Demos
 linux/Examples_and_Demos/Application_Demos/QT_Thermostat_HMI_Demo
-linux/Examples_and_Demos/Application_Demos/PdM_Anomaly_Detection
 linux/Examples_and_Demos/Application_Demos/PRU_ADC
 linux/Examples_and_Demos/Application_Demos/Additional_Application_Demo_Links
-linux/Examples_and_Demos_Matrix_User_Guide
 linux/Examples_and_Demos_Sub-system_Demos
 linux/How_to_Guides
 linux/How_to_Guides_Host
@@ -127,10 +126,8 @@ linux/How_to_Guides/Host/Customizing_the_SDK_Splash_Screen
 linux/How_to_Guides/Host/AM335x_ICEv2_flash_erase
 linux/How_to_Guides/Host/Program_the_eMMC_on_Beaglebone_Black
 linux/How_to_Guides_Target
-linux/How_to_Guides/Target/How_to_Recalibrate_the_Touchscreen
 linux/How_to_Guides/Target/Processor_SDK_Linux_File_System_Optimization_Customization
 linux/How_to_Guides/Target/How_to_add_a_JVM
-linux/How_to_Guides/Target/How_to_use_a_Mouse_instead_of_the_Touchscreen_with_Matrix
 linux/How_to_Guides/Target/Update_U-Boot_Environment_Variables_stored_in_SPI_Flash_from_Linux
 linux/How_to_Guides/Target/How_to_fix_y2k38
 linux/How_to_Guides/Target/How_to_Change_dtb_File

@@ -13,8 +13,8 @@
 
 Replacement Variables
 ---------------------
-'__PART_FAMILY_NAME__'           : 'Sitara'
-'__PART_FAMILY_DEVICE_NAMES__'   : 'AM65X'
+'__PART_FAMILY_NAME__'           : 'AM65x'
+'__PART_FAMILY_DEVICE_NAMES__'   : 'AM65x'
 '__PRODUCT_LINE_NAME__'          : 'Sitara MPU'
 '__SDK_BUILD_MACHINE__'          : 'am65xx-evm'
 '__SDK_FULL_NAME__'              : 'Processor SDK Linux AM65xx'
@@ -24,10 +24,9 @@ Replacement Variables
 '__SDK_DOWNLOAD_URL__'           : '`AM65xx-Linux-SDK-Download-page <https://www.ti.com/tool/PROCESSOR-SDK-AM65X>`__'
 '__LINUX_UBUNTU_VERSION_LONG__'  : '22.04 (64-bit)'
 '__LINUX_UBUNTU_VERSION_SHORT__' : '22.04'
-'__OPTEE_PLATFORM_FLAVOR__'      : 'am65x'
+'__OPTEE_PLATFORM_FLAVOR__'      : 'k3-am65x'
 '__RTOS_UBUNTU_VERSION_LONG__'   : '22.04 (64-bit)'
 '__WINDOWS_SUPPORTED_LONG__'     : '7 (64-bit)'
-'__FEATURINGMATRIX__'            : \
 '__SYSFW_CORE_NAME__'            : 'DMSC'
 '__IMAGE_TYPE__'                 : 'default'
 

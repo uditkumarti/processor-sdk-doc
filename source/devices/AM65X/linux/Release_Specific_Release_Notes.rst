@@ -42,10 +42,10 @@ Documentation
    running the demonstration application that is loaded on flash. This
    document is provided as part of the EVM kit.
 
-Release 09.03.05.02
+Release 11.02.05.02
 ===================
 
-Released December 2024
+Released November 2025
 
 .. rubric:: What's New
    :name: whats-new
@@ -54,186 +54,75 @@ Released December 2024
 
 **Processor SDK Linux AM65X Release has following new features:**
 
-  - LTS Stable Kernel update to 6.1.119
-  - Important Bug Fixes on top of Processor SDK 09.01.00.007 Release
+ - 2025 LTS Stable Update to 6.12.57
+ - ICSSM bug fixes
+ - VLAN Multicast filtering on ICSSG
+ - ICSSG XDP Support (Zero Copy)
+ - Test automation improvements
 
 
 **Component version:**
 
-  - Kernel 6.1.119
-  - RT Kernel 6.1.119-rt45
-  - U-Boot 2023.04
-  - Toolchain GCC 11.5
-  - ATF 2.10+
-  - OPTEE 4.1.0
+  - Kernel 6.12.57
+  - RT Kernel 6.12.57
+  - U-Boot 2025.01
+  - Toolchain GCC 13.4+
+  - ATF 2.13+
+  - OPTEE 4.7+
   - Graphics DDK 1.17
-  - SYSFW v10.01.08
-  - Yocto Kirkstone
+  - SYSFW v11.02.05
+  - Yocto Scarthgap
 
 
 Supported Platforms
 ===================
 See :ref:`here <release-specific-supported-platforms-and-versions>` for a list of supported platforms and links to more information.
 
-
-.. _release-specific-sdk-components-versions:
-
 .. _release-specific-build-information:
 
 Build Information
 =================
 
-.. _u-boot-release-notes:
+.. list-table::
+   :header-rows: 1
+   :widths: 15, 30, 30, 30
 
-U-Boot
-------
-
-| Head Commit: 2a13324ec63cc488f5f578886d0cf6ece348dfda arm: dts: am335x: Use PWM for LCD backlight
-| uBoot Version: 2023.04
-| Clone: git://git.ti.com/ti-u-boot/ti-u-boot.git
-| Branch: ti-u-boot-2023.04
-| uBoot Tag: 09.03.05
-|
-
-.. _tf-a-release-notes:
-
-TF-A
-----
-
-| Head Commit: 00f1ec6b8740ccd403e641131e294aabacf2a48b Merge changes from topic "revert-ti-dm-workaround" into integration
-| Repo: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git
-| Branch: master
-| Tag: 2.10+
-|
-
-.. _optee-release-notes:
-
-OP-TEE
-------
-
-| Head Commit: 012cdca49db398693903e05c42a254a3a0c0d8f2 plat-k3: drivers: sec_proxy: increment while reading trail bytes
-| Repo: https://github.com/OP-TEE/optee_os/
-| Branch: master
-| Tag: 4.1.0
-|
-
-.. _ti-linux-fw-release-notes:
-
-ti-linux-firmware
------------------
-
-| Head Commit: 1eaf07dc4ec5cdeb98078f17a9d4635e88f43f75 ti-dm: Update display sharing firmware for am62px
-| Clone: https://git.ti.com/cgit/processor-firmware/ti-linux-firmware
-| Branch: ti-linux-firmware
-| Tag: 09.03.05
-|
-
-
-Kernel
-------
-.. rubric:: Linux Kernel
-   :name: linux-kernel
-
-| Head Commit: c490f4c0fe51281818c45159c0fbed94f852978e HACK: arm: dts: am57: disable late attach as default
-| Kernel Version: 6.1.119
-
-| Repo: git://git.ti.com/ti-linux-kernel/ti-linux-kernel.git
-| Branch: ti-linux-6.1.y
-| Tag: 09.03.05
-| use-kernel-config=defconfig
-| config-fragment=kernel/configs/ti_arm64_prune.config
-|
-
-.. rubric:: Real Time (RT) Linux Kernel
-   :name: real-time-rt-linux-kernel
-
-| Head Commit: b0f9de804a162329bc81857ad50947311228dfb2 Merge branch 'ti-linux-6.1.y-cicd' into ti-rt-linux-6.1.y-cicd
-| Kernel Version: 6.1.119-rt45
-
-| Repo: git://git.ti.com/ti-linux-kernel/ti-linux-kernel.git
-| Branch: ti-rt-linux-6.1.y
-| Tag: 09.03.05-rt
-| use-kernel-config=defconfig
-| config-fragment=config-fragment=kernel/configs/ti_arm64_prune.config kernel/configs/ti_rt.config
-|
-
-
-Yocto
------
-.. rubric:: meta-ti
-   :name: meta-ti
-
-| Head Commit: 963140e3b5820d6ebf54a4418946a628e0fea2c6 CI/CD Auto-Merger: cicd.kirkstone.202412041235
-| Version: Kirkstone-4.0
-| Clone: git://git.yoctoproject.org/meta-ti
-| Branch: kirkstone
-| Release Tag: 09.03.05
-|
-
-.. rubric:: meta-arago
-   :name: meta-arago
-
-| Head Commit: f59caa5f47a625ef9eecada069ae6a74c70bcc47 CI/CD Auto-Merger: cicd.kirkstone.202412041235
-| Version: Kirkstone-4.0
-| Clone: git://git.yoctoproject.org/meta-arago
-| Branch: kirkstone
-| Release Tag: 09.03.05
-|
-
-
-.. rubric:: meta-tisdk
-
-| Head Commit: 2ee8bead9d04afcb61234738e0d9a644395d27bf recipes-core: packagegroups: Drop SGX sources from am65xx
-| Version: Kirkstone-4.0
-| Clone:  git://git.ti.com/ti-sdk-linux/meta-tisdk.git
-| Branch: kirkstone
-| Release Tag: 09.03.05.02
-|
-
-
-
-Issues Tracker
-==============
-
-.. note::
-
-    - Release Specific Issues including details will be published through Software Incident Report (SIR) portal
-
-    - Further Information can be found at `SIR Portal <https://sir.ext.ti.com/>`_
-
-Errata Resolved
----------------
-.. csv-table::
-   :header: "Record ID", "Title"
-   :widths: 15, 70
-
-   "EXT_EP-12052","PRU_ICSSG: DOC: Undefined labels"
-   "EXT_EP-12118","PCI-Express: GEN3 (8GT/s) Operation Not Supported."
-   "EXT_EP-12121","USB: USB2PHY Charger Detect is enabled by default without VBUS presence"
-   "EXT_EP-12120","DSS : DSS Does Not Support YUV Pixel Data Formats"
-   "EXT_EP-12119","USB:  SuperSpeed USB Non-Functional"
-
-Issues Resolved
----------------
-.. csv-table::
-   :header: "Record ID", "Title"
-   :widths: 15, 70
-
-   "EXT_EP-12108","audit for potential bugs with 6.6.44 stable merge "
-   "EXT_EP-12050","AM642-EVM: PCIe0 EP node is not defined"
-   "EXT_EP-12098","Uboot docs: document renaming tiboot3-<evm>.bin file"
-   "EXT_EP-12053","AM65x documentation several major issues no CPSW, incorrect ICSS section"
-   "EXT_SITMPUSW-31","IPC Firmwares missing from base images."
-
-Issues Open
------------
-.. csv-table::
-   :header: "Record ID", "Title"
-   :widths: 15, 70
-
-   "EXT_EP-12111","Linux SDK v10.0: TI-added support for W25N01JW SPI NAND breaks other existing Flash support"
-   "EXT_EP-12080","AM654x: USB MSC boot mode fails"
-   "EXT_EP-12048","am654x-idk DFU boot is failing"
+   * - Component
+     - Branch Info
+     - Tag Info
+     - Config Info
+   * - U-Boot
+     - `ti-u-boot-2025.01 <https://git.ti.com/cgit/ti-u-boot/ti-u-boot/log/?h=ti-u-boot-2025.01>`__
+     - `11.02.05 <https://git.ti.com/cgit/ti-u-boot/ti-u-boot/tag/?h=11.02.05>`__
+     - :ref:`Build Config <Build-U-Boot-label>`
+   * - TF-A
+     - `master <https://git.trustedfirmware.org/plugins/gitiles/TF-A/trusted-firmware-a.git/+/refs/heads/master>`__
+     - `v2.13+ <https://git.yoctoproject.org/meta-ti/tree/meta-ti-bsp/recipes-bsp/trusted-firmware-a/trusted-firmware-a-ti.inc?h=11.02.05#n3>`__
+     -
+   * - OPTEE
+     - `master <https://github.com/OP-TEE/optee_os/tree/master>`__
+     - `4.7.0+ <https://git.yoctoproject.org/meta-ti/tree/meta-ti-bsp/recipes-security/optee/optee-os-ti-version.inc?h=11.02.05#n1>`__
+     - |__OPTEE_PLATFORM_FLAVOR__|
+   * - Linux Firmware
+     - `ti-linux-firmware <https://git.ti.com/cgit/processor-firmware/ti-linux-firmware/log/?h=ti-linux-firmware>`__
+     - `11.02.05 <https://git.ti.com/cgit/processor-firmware/ti-linux-firmware/tag/?h=11.02.05>`__
+     -
+   * - Linux Kernel
+     - `ti-linux-6.12.y <https://git.ti.com/cgit/ti-linux-kernel/ti-linux-kernel/log/?h=ti-linux-6.12.y>`__
+     - `11.02.05 <https://git.ti.com/cgit/ti-linux-kernel/ti-linux-kernel/tag/?h=11.02.05>`__
+     - `non-RT <https://git.yoctoproject.org/meta-ti/tree/meta-ti-bsp/recipes-kernel/linux/linux-ti-staging-6.12/k3/defconfig?h=11.02.05>`__ , `RT <https://git.yoctoproject.org/meta-ti/tree/meta-ti-bsp/recipes-kernel/linux/linux-ti-staging-rt-6.12/k3/defconfig?h=11.02.05>`__
+   * - meta-ti
+     - `scarthgap <https://git.yoctoproject.org/meta-ti/log/?h=scarthgap>`__
+     - `11.02.05 <https://git.yoctoproject.org/meta-ti/tag/?h=11.02.05>`__
+     - |__SDK_BUILD_MACHINE__|
+   * - meta-arago
+     - `scarthgap <https://git.yoctoproject.org/meta-arago/log/?h=scarthgap>`__
+     - `11.02.05 <https://git.yoctoproject.org/meta-arago/tag/?h=11.02.05>`__
+     -
+   * - meta-tisdk
+     - `scarthgap <https://git.ti.com/cgit/ti-sdk-linux/meta-tisdk/log/?h=scarthgap>`__
+     - `11.02.05.02 <https://git.ti.com/cgit/ti-sdk-linux/meta-tisdk/tag/?h=11.02.05.02>`__
+     -
 
 
 Installation and Usage

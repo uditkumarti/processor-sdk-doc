@@ -13,8 +13,8 @@
 
 Replacement Variables
 ---------------------
-'__PART_FAMILY_NAME__'           : 'AM62DX'
-'__PART_FAMILY_DEVICE_NAMES__'   : 'AM62DX'
+'__PART_FAMILY_NAME__'           : 'AM62Dx'
+'__PART_FAMILY_DEVICE_NAMES__'   : 'AM62Dx'
 '__PRODUCT_LINE_NAME__'          : 'Sitara MPU'
 '__SDK_BUILD_MACHINE__'          : 'am62dxx-evm'
 '__SDK_FULL_NAME__'              : 'AM62D-Linux-SDK'
@@ -24,11 +24,10 @@ Replacement Variables
 '__SDK_DOWNLOAD_URL__'           : '`AM62D-SDK-Download-page <https://www.ti.com/tool/AM62D-PROCESSOR-SDK>`__'
 '__LINUX_UBUNTU_VERSION_LONG__'  : '22.04 (64-bit)'
 '__LINUX_UBUNTU_VERSION_SHORT__' : '22.04'
-'__OPTEE_PLATFORM_FLAVOR__'      : 'am62dxx'
+'__OPTEE_PLATFORM_FLAVOR__'      : 'k3-am62ax'
 '__RTOS_UBUNTU_VERSION_LONG__'   : '22.04 (64-bit), 16.04 (64-bit)'
 '__FAMILY_NAME__'                : 'am62dxx'
 '__WINDOWS_SUPPORTED_LONG__'     : '11 (64-bit)'
-'__FEATURINGMATRIX__'            : \
 '__SYSFW_CORE_NAME__'            : 'TIFS'
 '__IMAGE_TYPE__'                 : 'default'
 

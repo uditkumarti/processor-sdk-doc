@@ -16,7 +16,6 @@ execution of Linux based applications and includes the following:
 -  SDK Installer
 -  Setup Scripts
 -  Makefiles
--  Matrix Application Launcher
 -  Example Applications
 -  WLAN support (Wilink 8)
 -  Code Composer Studio
@@ -45,22 +44,20 @@ Documentation
    running the demonstration application that is loaded on flash. This
    document is provided as part of the EVM kit.
 
-Release 09.03.05.02
+Release 11.02.05.02
 ===================
 
-Released Dec 2024
+Released November 2025
 
 .. rubric:: What's New
    :name: whats-new
 
-.. note:: Generic PRU-ICSS Ethernet is descoped in 09.03.xx release.
+Processor SDK 11.02 Release has following new features:
 
-Processor SDK 9.3 Release has following new features:
-
-- 2023 LTS Stable Update to 6.1.119
-- Important Bug Fixes
-
-.. _release-specific-sdk-components-versions:
+ - 2025 LTS Stable Update to 6.12.57
+ - ICSSM bug fixes
+ - Test automation improvements
+ - HDMI suport in Linux
 
 .. rubric:: SDK Components & Versions
    :name: sdk-components-versions
@@ -68,13 +65,13 @@ Processor SDK 9.3 Release has following new features:
 +--------------------------+----------------------------+
 | Component                | Version                    |
 +==========================+============================+
-| Linux Kernel             | 6.1.119 (2023 LTS)         |
+| Linux Kernel             | 6.12.57 (2025 LTS)         |
 +--------------------------+----------------------------+
-| U-Boot                   | 2023.04                    |
+| U-Boot                   | 2025.01                    |
 +--------------------------+----------------------------+
-| Yocto Project            | 4.0 (kirkstone)            |
+| Yocto Project            | 5.0 (Scarthgap)            |
 +--------------------------+----------------------------+
-| ARM Toolchain (gcc)      | 11.5                       |
+| ARM Toolchain (gcc)      | 13.4+                      |
 +--------------------------+----------------------------+
 
 |
@@ -90,90 +87,34 @@ See :ref:`here <release-specific-supported-platforms-and-versions>` for a list o
 Build Information
 =================
 
-.. _u-boot-release-notes:
+.. list-table::
+   :header-rows: 1
+   :widths: 15, 30, 30, 30
 
-U-Boot
-------
-
-| Head Commit: 2a13324ec63cc488f5f578886d0cf6ece348dfda arm: dts: am335x: Use PWM for LCD backlight
-
-| Clone: git://git.ti.com/ti-u-boot/ti-u-boot.git
-| Branch: ti-u-boot-2023.04
-| Tag: 09.03.05
-|
-
-.. _release-specific-build-information-kernel:
-
-Kernel
-------
-
-.. _release-specific-build-information-linux-kernel:
-
-.. rubric:: Linux Kernel
-   :name: linux-kernel
-
-| Head Commit: c490f4c0fe51281818c45159c0fbed94f852978e HACK: arm: dts: am57: disable late attach as default
-
-| Clone: git://git.ti.com/ti-linux-kernel/ti-linux-kernel.git
-| Branch: ti-linux-6.1.y
-| Tag: 09.03.05
-|
-
-.. _release-specific-build-information-rt-linux-kernel:
-
-.. rubric:: Real Time (RT) Linux Kernel
-   :name: real-time-rt-linux-kernel
-
-| Head Commit: b0f9de804a162329bc81857ad50947311228dfb2 Merge branch 'ti-linux-6.1.y-cicd' into ti-rt-linux-6.1.y-cicd
-
-| Clone: git://git.ti.com/ti-linux-kernel/ti-linux-kernel.git
-| Branch: ti-rt-linux-6.1.y
-| Tag: 09.03.05-rt
-|
-
-.. _release-specific-generic-kernel-release-notes:
-
-.. rubric:: Generic Kernel Release Notes
-   :name: generic-kernel-release-notes
-
-| Generic kernel release notes from kernelnewbies.org can be found at:
-  http://kernelnewbies.org/Linux_6.1
-| Archived versions can be found at:
-  http://kernelnewbies.org/LinuxVersions
-
-|
-
-Yocto
------
-.. rubric:: meta-ti
-   :name: meta-ti
-
-| Head Commit: 963140e3b5820d6ebf54a4418946a628e0fea2c6 CI/CD Auto-Merger: cicd.kirkstone.202412041235
-
-| Clone: git://git.yoctoproject.org/meta-ti
-| Branch: kirkstone
-| Release Tag: 09.03.05
-|
-
-.. rubric:: meta-arago
-   :name: meta-arago
-
-| Head Commit: f59caa5f47a625ef9eecada069ae6a74c70bcc47 CI/CD Auto-Merger: cicd.kirkstone.202412041235
-
-| Clone: git://git.yoctoproject.org/meta-arago
-| Branch: kirkstone
-| Release Tag: 09.03.05
-|
-
-.. rubric:: meta-tisdk
-   :name: meta-tisdk
-
-| Head Commit: 2ee8bead9d04afcb61234738e0d9a644395d27bf recipes-core: packagegroups: Drop SGX sources from am65xx
-
-| Clone: git://git.ti.com/ti-sdk-linux/meta-tisdk.git
-| Branch: kirkstone
-| Release Tag: 09.03.05.02
-|
+   * - Component
+     - Branch Info
+     - Tag Info
+     - Config Info
+   * - U-Boot
+     - `ti-u-boot-2025.01 <https://git.ti.com/cgit/ti-u-boot/ti-u-boot/log/?h=ti-u-boot-2025.01>`__
+     - `11.02.05 <https://git.ti.com/cgit/ti-u-boot/ti-u-boot/tag/?h=11.02.05>`__
+     - :ref:`Build Config <Build-U-Boot-label>`
+   * - Linux Kernel
+     - `ti-linux-6.12.y <https://git.ti.com/cgit/ti-linux-kernel/ti-linux-kernel/log/?h=ti-linux-6.12.y>`__
+     - non-RT- `11.02.05 <https://git.ti.com/cgit/ti-linux-kernel/ti-linux-kernel/tag/?h=11.02.05>`__ , RT- `11.02.05-rt <https://git.ti.com/cgit/ti-linux-kernel/ti-linux-kernel/tag/?h=11.02.05-rt>`__
+     - `non-RT <https://git.yoctoproject.org/meta-ti/tree/meta-ti-bsp/recipes-kernel/linux/linux-ti-staging-6.12/ti43x/defconfig?h=11.02.05>`__ , `RT <https://git.yoctoproject.org/meta-ti/tree/meta-ti-bsp/recipes-kernel/linux/linux-ti-staging-rt-6.12/ti43x/defconfig?h=11.02.05>`__
+   * - meta-ti
+     - `scarthgap <https://git.yoctoproject.org/meta-ti/log/?h=scarthgap>`__
+     - `11.02.05 <https://git.yoctoproject.org/meta-ti/tag/?h=11.02.05>`__
+     - |__SDK_BUILD_MACHINE__|
+   * - meta-arago
+     - `scarthgap <https://git.yoctoproject.org/meta-arago/log/?h=scarthgap>`__
+     - `11.02.05 <https://git.yoctoproject.org/meta-arago/tag/?h=11.02.05>`__
+     -
+   * - meta-tisdk
+     - `scarthgap <https://git.ti.com/cgit/ti-sdk-linux/meta-tisdk/log/?h=scarthgap>`__
+     - `11.02.05.02 <https://git.ti.com/cgit/ti-sdk-linux/meta-tisdk/tag/?h=11.02.05.02>`__
+     -
 
 Issues Tracker
 ==============
@@ -184,34 +125,15 @@ Issues Tracker
 
     - Further Information can be found at `SIR Portal <https://sir.ext.ti.com/>`_
 
-Errata Resolved
----------------
-.. csv-table::
-   :header: "Record ID", "Title"
-   :widths: 15, 70
-
-   "EXT_EP-12116","i897: USB Stop Endpoint doesnt work in certain circumstances"
-   "EXT_EP-12117","i896: USB Port disable doesnt work"
-
-
-Issues Resolved
----------------
-.. csv-table::
-   :header: "Record ID", "Title"
-   :widths: 15, 70
-
-   "EXT_EP-12092","MPU_DPLL miscalculation in AM335x Linux kernel clock drivers"
-   "EXT_EP-12089","AM335x/AM437x PRU Remoteproc broken in SDK 9.1"
-   "EXT_EP-12087","AM437x: AUTOIDLE bit shouldn't be set in all UART device tree nodes"
-   "EXT_EP-12089","AM335x/AM437x PRU Remoteproc broken in SDK 9.1"
-
 Issues Open
 -----------
 .. csv-table::
    :header: "Record ID", "Title"
    :widths: 15, 70
 
-   "EXT_EP-12067","AM335x/AM437x PRU Ethernet slowdown from kernel 4.19 -> 5.4/5.10"
+   "EXTSYNC-5849","PRU RPMsg swaps which message is sent to which core"
+   "EXTSYNC-5814","Does Remoteproc driver for PRU-ICSS still zero out memory?"
+   "EXTSYNC-6120","AM437x Disable DeepSleep0 UART Wakeup"
 
 
 .. rubric:: Installation and Usage

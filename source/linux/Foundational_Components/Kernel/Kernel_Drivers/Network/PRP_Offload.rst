@@ -1,3 +1,5 @@
+.. _prp-offload:
+
 ===================
 PRP Offload
 ===================
@@ -11,7 +13,7 @@ It also allows to offload the below functionalities of PRP mode to the underlyin
 - hsr-dup-offload: Duplicate the outgoing PRP frame
 - hsr-tag-rm-offload: Remove PRP trailer from the frame
 
-The ICSSG PRP firmware supports offloading of all above functionalities saving overhead from the driver.
+The Programmable Real-time Unit and Industrial Communication Subsystem (PRU-ICSS) PRP firmware supports offloading of all above functionalities saving overhead from the driver.
 
 .. note::
 
@@ -55,6 +57,10 @@ The below script sets up a PRP interface with all possible offload functionaliti
    ip link set $if down
    ip link delete $if  2> /dev/null
 
+   ip link set $ifa down
+   ip link set $ifb down
+   sleep 1
+
    if [ "$1" = "prp_hw" ]
    then
          echo "Available offload features for $ifa: "
@@ -85,6 +91,9 @@ The below script sets up a PRP interface with all possible offload functionaliti
 
    ip addr add "$ip"/24 dev $if
    ip link set $if up
+   ip link set $ifa up
+   ip link set $ifb up
+   sleep 1
 
 To create PRP interface with IP address 192.168.1.10 using eth1 and eth2,
 run the script by passing the arguments as below
@@ -347,12 +356,14 @@ A sample test setup is as shown below
 
       iperf3 -c -t60 <Node_C_IP_Addr>
 
-.. rubric:: Throughput at Node A
+.. ifconfig:: CONFIG_part_variant in ('AM64X')
 
-.. list-table:: Throughput performance
-   :widths: 25 25
+   .. rubric:: Througput at Node A
 
-   * - Sender
-     - Receiver
-   * - 610 Mbits/sec
-     - 605 Mbits/sec
+   .. list-table:: Throughput performance
+      :widths: 25 25
+
+      * - Sender
+        - Receiver
+      * - 610 Mbits/sec
+        - 605 Mbits/sec

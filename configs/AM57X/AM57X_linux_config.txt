@@ -13,8 +13,8 @@
 
 Replacement Variables
 ---------------------
-'__PART_FAMILY_NAME__'           : 'AM57X'
-'__PART_FAMILY_DEVICE_NAMES__'   : 'AM57X devices'
+'__PART_FAMILY_NAME__'           : 'AM57x'
+'__PART_FAMILY_DEVICE_NAMES__'   : 'AM57x'
 '__PRODUCT_LINE_NAME__'          : 'Jacinto'
 '__SDK_BUILD_MACHINE__'          : 'am57xx-evm'
 '__SDK_FULL_NAME__'              : 'Processor SDK Linux AM57X'
@@ -26,7 +26,6 @@ Replacement Variables
 '__LINUX_UBUNTU_VERSION_SHORT__' : '22.04'
 '__OPTEE_PLATFORM_FLAVOR__'      : 'am57xx'
 '__RTOS_UBUNTU_VERSION_LONG__'   : '22.04'
-'__FEATURINGMATRIX__'            : \
 '__SYSFW_CORE_NAME__'            : \
 '__IMAGE_TYPE__'                 : 'default'
 

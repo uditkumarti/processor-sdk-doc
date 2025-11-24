@@ -54,6 +54,14 @@ manager that coordinates the loading of devices with the initialization of any
 specified graphical environment. By default it will automatically start
 ``weston`` under the weston user on device startup.
 
+The definition of the session, including the command used to start it is in
+:file:`/usr/share/wayland-sessions/weston.desktop`. This follows the desktop
+entry initialization (INI) format. Some have argued that session entries do not
+fully meet the `Desktop Entry Specification`_ due to the addition of some new
+keys and silent disregard of other keys.
+
+.. _Desktop Entry Specification: https://specifications.freedesktop.org/desktop-entry-spec
+
 If you need to interact with this instance with any other user, then make sure
 that user is capable of interacting with the wayland socket. This will be
 :file:`wayland-1` under the ``weston`` user's ``XDG_RUNTIME_DIR``,
@@ -245,3 +253,19 @@ See the following for more information about the Weston IVI-shell:
 
    - `<https://wayland.pages.freedesktop.org/weston/toc/ivi-shell.html>`_
 
+***********
+Screenshots
+***********
+
+The :command:`weston-screenshooter` utility allows for fast, full-screen
+screenshots. It behaves similarly to any other weston client utility and
+requires the ``WAYLAND_DISPLAY`` environment variable to point to a valid
+Wayland socket. See :ref:`running-weston-clients` for more information.
+
+For most Wayland compositors this would be enough, but Weston requires
+additional configuration. Weston does not support the `screen capture
+protocol`_, and instead uses an internal helper to fetch and dump active display
+contents. Weston only exposes this helper when launched in debug mode. To do
+this, add the ``--debug`` argument when starting Weston.
+
+.. _screen capture protocol: https://gitlab.freedesktop.org/wayland/wayland-protocols/-/blob/main/staging/ext-image-copy-capture/ext-image-copy-capture-v1.xml

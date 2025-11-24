@@ -1,18 +1,18 @@
 .. _foundational-components-atf:
 
 ARM Trusted Firmware-A
-========================================
+======================
 .. rubric:: Overview
 
 Trusted Firmware-A (TF-A) provides a reference implementation of secure world
 software for Armv7-A and Armv8-A, including a Secure Monitor executing at
 Exception Level 3 (EL3).
 
-ATF is used as the initial start code on ARMv8-A cores for all K3 platforms.
+TF-A is the initial code on ARMv8-A cores for all K3 platforms.
 After setting up the initial core state and applying any needed errata fixes
 it sets up itself as the EL3 monitor handler. Following that, it installs the secure
-world software (OP-TEE) and passes execution on to either the Linux kernel or U-Boot
-in the non-secure world.
+world open source Trusted Execution Environment (OP-TEE) software and passes execution
+on to either the Linux kernel or U-Boot in the non-secure world.
 
 .. ifconfig:: CONFIG_part_variant in ('AM62LX')
 
@@ -24,21 +24,69 @@ in the non-secure world.
    The SCMI IDs used in the AM62L TF-A implementation are documented in the
    `TF-A documentation <https://github.com/TexasInstruments/arm-trusted-firmware/blob/ti-master/docs/plat/ti-am62l.rst>`__.
 
+   .. rubric:: SCMI and TI SCI
+
+   The AM62Lx represents a transition in Texas Instruments' approach to system control
+   interfaces. In the previous K3 devices, the Texas Instruments System Controller Interface (TI SCI)
+   was the primary protocol used for power, clock, and resource management. SCMI now serves
+   as a replacement for newer devices like the AM62L, offering similar functionality through
+   an industry-standard ARM protocol. This transition is in part due to the absence of any Device
+   Management (R5 core) in the AM62Lx.
+
+   .. rubric:: Implementation Overview
+
+   The AM62L TF-A implementation runs a SCMI server that manages:
+
+   * **Power Domains**: Over 100 power domains are defined for various peripherals and subsystems
+   * **Clock Management**: Extensive clock control for all major peripherals including:
+
+        - Multiple clock sources (PLLs, oscillators, external clocks)
+        - Clock multiplexers for flexible clock routing
+        - Clock dividers for frequency scaling
+        - Support for dynamic clock rate configuration
+
+   .. rubric:: Clock Infrastructure
+
+   The clock management system supports:
+
+   * **Parent Clock Selection** - Multiple clock sources can be selected as parents for each peripheral
+   * **Clock Multiplexing** - Dynamic switching between different clock sources
+   * **Rate Configuration** - Flexible frequency configuration within supported ranges
+
+   .. rubric:: Usage in Linux
+
+   Linux kernel drivers can use standard SCMI client APIs to:
+
+   * Request power state changes for devices
+   * Configure clock rates and parents
+   * Query current power and clock states
+   * Implement dynamic power management policies
+
 |
 
-.. rubric:: Getting the ATF Source Code
+.. rubric:: Getting the TF-A Source Code
 
-The pre-built TF-A binary should be packaged in TI Processor SDK: <path-to-processor-sdk>/board-support/prebuilt-images/<optional-build-machine-name>/bl31.bin.
-Use this binary since it has been tested with TI Processor SDK.
+The pre-built TF-A binary is in the TI Processor SDK:
+<path-to-processor-sdk>/board-support/prebuilt-images/<optional-build-machine-name>/bl31.bin.
+Use this binary since it is tested with TI Processor SDK.
 
-If it is not possible to use pre-build binary, use the following:
+If it is not possible to use a pre-built binary, use the following:
 
-.. code-block:: console
+.. ifconfig:: CONFIG_part_variant in ('AM62LX')
 
-   $ git clone https://github.com/TexasInstruments/arm-trusted-firmware.git
-   $ git checkout <hash>
+   .. code-block:: console
 
-Where <hash> is the commit shown here: :ref:`tf-a-release-notes`.
+      $ git clone https://github.com/TexasInstruments/arm-trusted-firmware.git
+      $ git checkout <hash>
+
+.. ifconfig:: CONFIG_part_variant not in ('AM62LX')
+
+   .. code-block:: console
+
+      $ git clone https://review.trustedfirmware.org/TF-A/trusted-firmware-a.git
+      $ git checkout <hash>
+
+Where <hash> is the commit shown in :ref:`release-specific-build-information`.
 
 |
 
@@ -48,7 +96,7 @@ Where <hash> is the commit shown here: :ref:`tf-a-release-notes`.
    :start-after: .. start_include_yocto_toolchain_host_setup
    :end-before: .. end_include_yocto_toolchain_host_setup
 
-.. rubric:: Building ATF
+.. rubric:: Building TF-A
 
 .. ifconfig:: CONFIG_part_variant in ('AM62LX', 'AM62X', 'AM62AX', 'AM62PX', 'AM64X', 'J722S')
 
@@ -97,7 +145,7 @@ Where <hash> is the commit shown here: :ref:`tf-a-release-notes`.
     .. code-block:: text
 
        +---------------------------+------------+
-       | ATF image                 | 0x701c0000 |
+       | TF-A image                | 0x701c0000 |
        +---------------------------+------------+
        | OP-TEE image              | 0x9e800000 |
        +---------------------------+------------+
@@ -111,7 +159,7 @@ Where <hash> is the commit shown here: :ref:`tf-a-release-notes`.
     .. code-block:: text
 
        +---------------------------+------------+
-       | ATF image                 | 0x80000000 |
+       | TF-A image                | 0x80000000 |
        +---------------------------+------------+
        | OP-TEE image              | 0x80200000 |
        +---------------------------+------------+
@@ -125,7 +173,7 @@ Where <hash> is the commit shown here: :ref:`tf-a-release-notes`.
     .. code-block:: text
 
        +---------------------------+------------+
-       | ATF image                 | 0x70000000 |
+       | TF-A image                | 0x70000000 |
        +---------------------------+------------+
        | OP-TEE image              | 0x9e800000 |
        +---------------------------+------------+
@@ -143,7 +191,7 @@ Where <hash> is the commit shown here: :ref:`tf-a-release-notes`.
     .. code-block:: text
 
        +-----------------------------------------------------+------------------+-----------------------+---------------------+---------------+-------------------+----------+----------------------------------------+
-       | Source                                              | ATF              | OPTEE                 |  A53 SPL            | A53 U-Boot    | DTB               | kernel   | Comments                               |
+       | Source                                              | TF-A             | OPTEE                 |  A53 SPL            | A53 U-Boot    | DTB               | kernel   | Comments                               |
        +=====================================================+==================+=======================+=====================+===============+===================+==========+========================================+
        | <atf>/plat/ti/k3/board/lite/board.mk                |                  | BL32_BASE             | PRELOADED_BL33_BASE |               | K3_HW_CONFIG_BASE |          | Change K3_HW_CONFIG_BASE for           |
        |                                                     |                  |                       |                     |               |                   |          | u-boot a53 skip case                   |

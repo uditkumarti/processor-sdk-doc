@@ -56,13 +56,28 @@ Test commands used for running stress-ng and cyclictest together
    stress-ng --cpu-method=all -c 4 &
    cyclictest -m -Sp80 -D6h -h400 -i200 -M -q
 
-The latencies observed with this SDK are summarized below:
+The following summarizes the latencies observed using the yocto based
+default SDK image:
+
+.. note::
+
+   Using the OP-TEE TRNG driver can impact this benchmark's performance due to
+   frequent context switching between Normal World (Linux) and Secure World (OP-TEE),
+   that occurs when the kernel's hardware random number generator interface
+   (hwrng) requests entropy from the secure TRNG to replenish the Linux entropy
+   pool.
+
+   The Linux TRNG driver can mitigate these latency spikes. This involves
+   enabling the Pseudo RNG driver in OP-TEE as documented in the Foundational
+   Components section: :ref:`building-optee-with-prng`, and enabling the RNG
+   node in the Linux kernel device tree. This way the HW TRNG is accessed from
+   the kernel itself.
 
 .. csv-table::
    :header: "Latencies","CPU 0","CPU 1"
 
    "Minimum (us)","5","5"
-   "Average (us)","6","8"
-   "Maximum (us)","47","53"
+   "Average (us)","8","7"
+   "Maximum (us)","57","48"
 
 .. image:: img/rt-cpu-method-all-latency-histogram.png

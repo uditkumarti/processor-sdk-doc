@@ -83,16 +83,14 @@ What's new
   - Toolchain GCC 13.4
   - ATF 2.13+
   - OPTEE 4.6.0
-  - TIFS Firmware / SYSFW `v11.01.02 <https://software-dl.ti.com/tisci/esd/11_01_02/release_notes/release_notes.html>`__ (Click on the link for more information)
-  - DM Firmware 11.01.00.05
+  - TIFS Firmware / SYSFW `v11.01.05 <https://software-dl.ti.com/tisci/esd/11_01_05/release_notes/release_notes.html>`__ (Click on the link for more information)
+  - DM Firmware `MSDK.11.01.00.16+ <https://github.com/TexasInstruments/mcupsdk-core-k3/tree/REL.MCUSDK.K3.11.01.00.16>`__ (Click on the link for more information)
   - Yocto scarthgap 5.0
 
 .. _release-specific-build-information:
 
 Build Information
 =================
-
-.. _u-boot-release-notes:
 
 U-Boot
 ------
@@ -105,8 +103,6 @@ U-Boot
 | uBoot Tag: 11.01.07
 |
 
-.. _tf-a-release-notes:
-
 TF-A
 ----
 | Head Commit: e0c4d3903b382bf34f552af53e6d955fae5283ab Merge changes from topic "xlnx_fix_gen_con_datatype" into integration
@@ -115,8 +111,6 @@ TF-A
 | Tag: (2.13 based)
 |
 
-.. _optee-release-notes:
-
 OP-TEE
 ------
 | Head Commit: 71785645fa6ce42db40dbf5a54e0eaedc4f61591 Update CHANGELOG for 4.6.0
@@ -124,8 +118,6 @@ OP-TEE
 | Branch: master
 | Tag: 4.6.0
 |
-
-.. _ti-linux-fw-release-notes:
 
 ti-linux-firmware
 -----------------

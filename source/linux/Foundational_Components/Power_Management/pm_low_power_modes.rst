@@ -8,6 +8,12 @@ Low Power Modes
 Overview
 ********
 
+.. ifconfig:: CONFIG_part_variant in ('AM62X')
+
+   .. important::
+
+      SK-AM62-SIP EVM does NOT support low power modes.
+
 The following sections describe a high-level description of the different low power modes (LPM) of the
 device. If your application requires inactive power management, you must determine which
 low power mode described below satisfies your requirements. Each mode must be evaluated
@@ -139,14 +145,16 @@ I/O Only Plus DDR
 
       Atleast one of the wakeup sources listed above must be enabled to wakeup from I/O Only Plus DDR mode.
 
-   .. rubric:: To enter I/O Only Plus DDR mode, first disable wakeup from RTC, USB0 and USB1 as these wakeup
-               sources are not supported for this mode.
+   .. rubric:: To enter I/O Only Plus DDR mode, first disable wakeup from RTC,
+               Main UART, USB0, and USB1 as these wakeup sources are not
+               supported for this mode.
 
    .. ifconfig:: CONFIG_part_variant in ('AM62AX')
 
       .. code-block:: console
 
          root@am62axx-evm:~# echo disabled > /sys/class/rtc/rtc0/device/power/wakeup
+         root@am62axx-evm:~# echo disabled > /sys/bus/platform/devices/2800000.serial/power/wakeup
          root@am62axx-evm:~# echo disabled > /sys/devices/platform/bus@f0000/f900000.dwc3-usb/power/wakeup
          root@am62axx-evm:~# echo disabled > /sys/devices/platform/bus@f0000/f910000.dwc3-usb/power/wakeup
 
@@ -155,6 +163,7 @@ I/O Only Plus DDR
       .. code-block:: console
 
          root@am62pxx-evm:~# echo disabled > /sys/class/rtc/rtc0/device/power/wakeup
+         root@am62pxx-evm:~# echo disabled > /sys/bus/platform/devices/2800000.serial/power/wakeup
          root@am62pxx-evm:~# echo disabled > /sys/devices/platform/bus@f0000/f900000.usb/power/wakeup
          root@am62pxx-evm:~# echo disabled > /sys/devices/platform/bus@f0000/f910000.usb/power/wakeup
 
@@ -385,18 +394,6 @@ before running the Suspend-to-RAM command:
 .. code-block:: console
 
    root@<machine>:@~# modprobe -r optee_rng
-
-.. ifconfig:: CONFIG_part_variant in ('AM62AX')
-
-   .. attention::
-
-      Linux SDK for edge AI applications has a known issue that breaks
-      Deep Sleep and MCU Only modes. To test these modes, the DSP module
-      has to be unloaded before attempting LPM:
-
-      .. code-block:: console
-
-         root@am62axx-evm:@~# modprobe -rf ti_k3_dsp_remoteproc
 
 Compatibility
 =============

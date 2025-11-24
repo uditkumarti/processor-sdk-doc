@@ -90,8 +90,6 @@ Processor SDK 11.01 Release has following new features:
 Build Information
 =================
 
-.. _u-boot-release-notes:
-
 U-Boot
 ------
 | Head Commit: 743712b9ee4b33cc9739a3cbeb5a8f14ae2ccf35: TI: dts: arm64: ti: sync dtbs from ti-linux-6.12.y upto ce4785d01a0b
@@ -110,7 +108,7 @@ U-Boot
 
    .. note::
 
-      meta-edgeai Yocto layer contains additional patches for U-Boot `here <https://git.ti.com/cgit/edgeai/meta-edgeai/tree/recipes-bsp/u-boot?h=11.00.00.08>`__.
+      meta-edgeai Yocto layer contains additional patches for U-Boot `here <https://git.ti.com/cgit/edgeai/meta-edgeai/tree/recipes-bsp/u-boot?h=11.01.00.03>`__.
 
 .. _kernel-release-notes:
 
@@ -138,9 +136,7 @@ Kernel
 
    .. note::
 
-      meta-edgeai Yocto layer contains additional patches for Kernel `here <https://git.ti.com/cgit/edgeai/meta-edgeai/tree/recipes-kernel/linux?h=11.00.00.08>`__.
-
-.. _tf-a-release-notes:
+      meta-edgeai Yocto layer contains additional patches for Kernel `here <https://git.ti.com/cgit/edgeai/meta-edgeai/tree/recipes-kernel/linux?h=11.01.00.03>`__.
 
 TF-A
 ----
@@ -152,8 +148,6 @@ TF-A
 | Branch: master
 |
 
-.. _optee-release-notes:
-
 OP-TEE
 ------
 | Head Commit: 71785645fa6ce42db40dbf5a54e0eaedc4f61591: Update CHANGELOG for 4.6.0
@@ -164,8 +158,6 @@ OP-TEE
 | Branch: master
 | Tag: 4.6.0
 |
-
-.. _ti-linux-fw-release-notes:
 
 ti-linux-firmware
 -----------------
@@ -216,12 +208,12 @@ Yocto
 
    .. rubric:: meta-edgeai
 
-   | Head Commit: 81d1b80b2a314814c6d900e82ea2da93eee3f57d [20250519] EDGEAI Auto Update
-   | Date: 2025-05-19
+   | Head Commit: 42fb59bb661dd2a467e6df7f5ddf8ec21661083c recipes-tisdk: ti-edgeai-firmware: update psdk_fw SRC_REV
+   | Date: 2025-09-13
 
    | Clone: git://git.ti.com/edgeai/meta-edgeai.git
    | Branch: scarthgap
-   | Release Tag: 11.00.00.08
+   | Release Tag: 11.01.00.03
    |
 
 Issues Tracker

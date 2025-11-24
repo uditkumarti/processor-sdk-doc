@@ -97,6 +97,10 @@ This section describes an overview of the modifications that can be done to achi
 .. Image:: /images/optimized_bootflow_sbl_mpu.png
      :align: center
 
+.. note::
+
+   This document focuses on optimized boot flow by using Secondary Boot Loader (SBL). Users can also achieve shorter boot time by using Secondary Program Loader (SPL) flow. Refer doc :ref:`U-Boot Falcon Mode <U-Boot-Falcon-Mode>`.
+
 Reducing bootloader time
 ------------------------
 
@@ -131,7 +135,7 @@ Reducing bootloader time
 
 .. ifconfig:: CONFIG_part_variant in ('AM62PX')
 
-    You can track current performance numbers here: `AM62PX <https://software-dl.ti.com/mcu-plus-sdk/esd/AM62PX/latest/exports/docs/api_guide_am62px/DATASHEET_AM62PX_EVM.html#autotoc_md119>`_
+    You can track current performance numbers here: `AM62PX <https://software-dl.ti.com/mcu-plus-sdk/esd/AM62PX/11_01_01_08/exports/docs/api_guide_am62px/DATASHEET_AM62PX_EVM.html#autotoc_md119>`_
 
 
 - Flashing binaries:
@@ -142,7 +146,7 @@ Reducing bootloader time
 
         - U-Boot eMMC flashing tool AM62X: :ref:`u-boot-build-guide-environment-k3`
 
-        - `U-Boot SPI flashing tool AM62X <https://software-dl.ti.com/processor-sdk-linux/esd/AM62X/latest/exports/docs/linux/Foundational_Components/U-Boot/UG-SPI.html#spi>`_
+        - :ref:`U-Boot SPI flashing tool AM62X <u-boot-introduction-qspi-ug>`
 
     .. ifconfig:: CONFIG_part_variant in ('AM62AX')
 
@@ -150,15 +154,15 @@ Reducing bootloader time
 
         - U-Boot eMMC flashing tool AM62AX: :ref:`u-boot-build-guide-environment-k3`
 
-        - `U-Boot SPI flashing tool AM62AX <https://software-dl.ti.com/processor-sdk-linux/esd/AM62AX/11_01_00_16/exports/docs/linux/Foundational_Components/U-Boot/UG-SPI.html#spi>`_
+        - :ref:`U-Boot SPI flashing tool AM62AX <u-boot-introduction-qspi-ug>`
 
     .. ifconfig:: CONFIG_part_variant in ('AM62PX')
 
-        - `UART flashing tool AM62PX <https://software-dl.ti.com/mcu-plus-sdk/esd/AM62PX/latest/exports/docs/api_guide_am62px/TOOLS_FLASH.html>`_
+        - `UART flashing tool AM62PX <https://software-dl.ti.com/mcu-plus-sdk/esd/AM62PX/11_01_01_08/exports/docs/api_guide_am62px/TOOLS_FLASH.html>`_
 
         - U-Boot eMMC flashing tool AM62PX: :ref:`u-boot-build-guide-environment-k3`
 
-        - `U-Boot SPI flashing tool AM62PX <https://software-dl.ti.com/processor-sdk-linux/esd/AM62PX/latest/exports/docs/linux/Foundational_Components/U-Boot/UG-SPI.html#spi>`_
+        - :ref:`U-Boot SPI flashing tool AM62PX <u-boot-introduction-qspi-ug>`
 
 Secondary Boot Loader (SBL)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -172,7 +176,7 @@ Secondary Boot Loader (SBL)
 
 .. ifconfig:: CONFIG_part_variant in ('AM62PX')
 
-    The following section will reference `AM62PX MCU+ SDK's SBL examples <https://software-dl.ti.com/mcu-plus-sdk/esd/AM62PX/latest/exports/docs/api_guide_am62px/EXAMPLES_DRIVERS_SBL.html>`_.
+    The following section will reference `AM62PX MCU+ SDK's SBL examples <https://software-dl.ti.com/mcu-plus-sdk/esd/AM62PX/11_01_01_08/exports/docs/api_guide_am62px/EXAMPLES_DRIVERS_SBL.html>`_.
 
 .. ifconfig:: CONFIG_part_variant in ('AM62X')
 
@@ -184,7 +188,7 @@ Secondary Boot Loader (SBL)
 
 .. ifconfig:: CONFIG_part_variant in ('AM62PX')
 
-    - `AM62PX Falcon Mode <https://software-dl.ti.com/mcu-plus-sdk/esd/AM62PX/latest/exports/docs/api_guide_am62px/TOOLS_BOOT.html#LINUX_APPIMAGE_GEN_TOOL>`_
+    - `AM62PX Falcon Mode <https://software-dl.ti.com/mcu-plus-sdk/esd/AM62PX/11_01_01_08/exports/docs/api_guide_am62px/TOOLS_BOOT.html#LINUX_APPIMAGE_GEN_TOOL>`_
 
 - Removing unnecessary prints
 
@@ -214,12 +218,6 @@ Secondary Boot Loader (SBL)
     .. Image:: /images/SBL_enable_ospi_phy_skip.png
          :align: center
 
-- Enabling DMA in the bootloader
-
-    Open the relevant example's syscfg and navigate to the `Bootloader` section and click on **Enable DMA** if not enabled by default.
-
-    .. Image:: /images/SBL_enable_dma.png
-         :align: center
 
 .. ifconfig:: CONFIG_part_variant in ('AM62PX')
 
@@ -247,6 +245,10 @@ Secondary Boot Loader (SBL)
 
         .. Image:: /images/SBL_singlerank_ddr.png
          :align: center
+
+.. note::
+
+   SBL flow requires specifying kernel bootargs in either the Linux defconfig or device tree, otherwise the Linux image will fail to boot.
 
 Reducing Linux kernel boot time
 -------------------------------
@@ -601,25 +603,25 @@ To measure the instance when the filesystem starts, navigate to :file:`init/main
 
     .. code-block:: console
 
-        [2025-07-10 17:37:54.176] NOTICE:  BL31: v2.13.0(release):v2.13.0-240-gd90bb650fe-dirty
-        [2025-07-10 17:37:41.176] NOTICE:  BL31: Built : 21:37:18, Jun 23 2025
-        [2025-07-10 17:37:42.972]
-        [2025-07-10 17:37:42.972] am62xx-evm login:
+        [2025-10-08 15:25:02.847] NOTICE:  BL31: v2.13.0(release):v2.13.0-259-ge0c4d3903
+        [2025-10-08 15:25:02.847] NOTICE:  BL31: Built : 17:07:22, Oct  7 2025
+        [2025-10-08 15:25:03.567]
+        [2025-10-08 15:25:03.567] am62xx-evm login:
 
     +-----------------+-----------+
     |      Stage      | Time (ms) |
     +=================+===========+
     | PMIC (TPS65224) |     15    |
     +-----------------+-----------+
-    |       ROM       |     30    |
+    |       ROM       |     31    |
     +-----------------+-----------+
-    |       SBL       |    186    |
+    |       SBL       |    200    |
     +-----------------+-----------+
-    |  Linux Kernel   |    548    |
+    |  Linux Kernel   |    530    |
     +-----------------+-----------+
-    |     Tiny FS     |    248    |
+    |     Tiny FS     |    190    |
     +-----------------+-----------+
-    |           Total |   1027    |
+    |      Total      |    966    |
     +-----------------+-----------+
 
 Bootloader loads HSM binary (9KB), MCU/DSP image (50KB) and Kernel+FS image (22MB) in the above measurements
